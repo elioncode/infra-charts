@@ -1,0 +1,65 @@
+enabled: false
+
+replicaCount: 1
+
+nameOverride: ""
+fullnameOverride: "mysql"
+
+image:
+  repository: mysql
+  tag: "5.7.44"
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+
+auth:
+  existingSecret: ""
+  rootPassword: "change-me-root-password"
+  username: ""
+  password: ""
+  database: ""
+  secretKeys:
+    rootPasswordKey: mysql-root-password
+    userPasswordKey: mysql-password
+
+service:
+  type: ClusterIP
+  port: 3306
+
+persistence:
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  size: 20Gi
+  storageClass: ""
+
+resources: {}
+
+podAnnotations: {}
+podLabels: {}
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+podSecurityContext:
+  fsGroup: 999
+
+containerSecurityContext: {}
+
+probes:
+  startup:
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 30
+  liveness:
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 6
+  readiness:
+    initialDelaySeconds: 10
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 12
+

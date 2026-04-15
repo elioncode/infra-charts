@@ -1,0 +1,55 @@
+fullnameOverride: redis
+
+namespace: redis
+
+persistence: {}
+
+image:
+  pullSecrets:
+    - gcr-json-key
+  registry: asia.gcr.io
+  repository: peatio-images-project/github.com/peatio/mirror-image/redis
+  tag: 4.0.9
+  pullPolicy: Always
+
+cluster:
+  enabled: false
+  slaveCount: 1
+
+usePassword: true
+
+master:
+  port: 6379
+  disableCommands: "FLUSHDB,FLUSHALL"
+  resources:
+    limits:
+      memory: 1Gi
+      cpu: 300m
+    requests:
+      memory: 1Gi
+      cpu: 50m
+  service:
+    type: ClusterIP
+  securityContext:
+    enabled: true
+    fsGroup: 1001
+    runAsUser: 1001
+  persistence:
+    enabled: true
+    path: /bitnami/redis/data
+    subPath: ""
+    accessModes:
+    - ReadWriteOnce
+    size: 20Gi
+    storageClass: "alicloud-disk-essd"
+
+slave:
+  service:
+    type: ClusterIP
+  resources:
+    requests:
+      memory: 1Gi
+      cpu: 50m
+    limits:
+      memory: 1Gi
+      cpu: 300m
