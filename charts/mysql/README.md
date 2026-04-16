@@ -7,6 +7,7 @@ Lightweight MySQL 5.7 chart intended for shared or PR environments.
 - Keep the chart small and predictable
 - Default to MySQL 5.7.44
 - Support `existingSecret` for passwords
+- Use only ephemeral storage (`emptyDir`) for temporary environments
 - Be usable as a standalone chart or as a subchart inside business realms
 
 ## Main values
@@ -15,5 +16,3 @@ Lightweight MySQL 5.7 chart intended for shared or PR environments.
 - `fullnameOverride`: stable service name, defaults to `mysql`
 - `auth.existingSecret`: existing secret name for passwords
 - `auth.database`: optional database to auto-create on first boot
-- `persistence.*`: PVC settings
-

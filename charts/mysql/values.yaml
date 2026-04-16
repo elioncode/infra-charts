@@ -25,13 +25,6 @@ service:
   type: ClusterIP
   port: 3306
 
-persistence:
-  enabled: true
-  accessModes:
-    - ReadWriteOnce
-  size: 20Gi
-  storageClass: ""
-
 resources: {}
 
 podAnnotations: {}
@@ -62,4 +55,3 @@ probes:
     periodSeconds: 5
     timeoutSeconds: 3
     failureThreshold: 12
-
