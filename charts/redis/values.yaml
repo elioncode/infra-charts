@@ -1,6 +1,6 @@
 fullnameOverride: redis
 
-namespace: redis
+namespace: ""
 
 persistence: {}
 
@@ -17,6 +17,10 @@ cluster:
   slaveCount: 1
 
 usePassword: true
+
+auth:
+  existingSecret: ""
+  existingSecretPasswordKey: password
 
 master:
   port: 6379

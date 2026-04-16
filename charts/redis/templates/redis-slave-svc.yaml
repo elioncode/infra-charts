@@ -2,14 +2,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "redis.name" . }}-slave
+  name: {{ template "redis.fullname" . }}-slave
   labels:
     app: {{ template "redis.name" . }}
     chart: {{ template "redis.chart" . }}
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
     realm: infra
-  namespace: {{ .Values.namespace }}
+  namespace: {{ include "redis.namespace" . }}
   annotations:
 {{- if .Values.master.service.annotations }}
 {{ toYaml .Values.master.service.annotations | indent 4 }}

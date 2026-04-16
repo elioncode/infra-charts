@@ -8,14 +8,14 @@ metadata:
     release: "{{ .Release.Name }}"
     heritage: "{{ .Release.Service }}"
     realm: infra
-  namespace: {{ .Values.namespace }}
+  namespace: {{ include "redis.namespace" . }}
 spec:
   selector:
     matchLabels:
       release: "{{ .Release.Name }}"
       role: master
       app: {{ template "redis.name" . }}
-  serviceName: "redis-master"
+  serviceName: "{{ template "redis.fullname" . }}-master"
   template:
     metadata:
       labels:
@@ -64,8 +64,8 @@ spec:
         - name: REDIS_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: secret-hub-infra-redis
-              key: password
+              name: {{ include "redis.secretName" . }}
+              key: {{ .Values.auth.existingSecretPasswordKey }}
         {{- else }}
         - name: ALLOW_EMPTY_PASSWORD
           value: "yes"

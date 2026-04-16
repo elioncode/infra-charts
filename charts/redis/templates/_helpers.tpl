@@ -23,6 +23,24 @@ If release name contains chart name it will be used as a full name.
 {{- end -}}
 
 {{/*
+Return the namespace the chart should render into.
+*/}}
+{{- define "redis.namespace" -}}
+{{- default .Release.Namespace .Values.namespace -}}
+{{- end -}}
+
+{{/*
+Return the secret name for redis password.
+*/}}
+{{- define "redis.secretName" -}}
+{{- if .Values.auth.existingSecret -}}
+{{- .Values.auth.existingSecret -}}
+{{- else -}}
+{{- printf "%s-auth" (include "redis.fullname" .) -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
 Return the appropriate apiVersion for networkpolicy.
 */}}
 {{- define "networkPolicy.apiVersion" -}}
