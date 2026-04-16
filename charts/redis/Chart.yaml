@@ -9,6 +9,8 @@ keywords:
 - database
 home: http://redis.io/
 icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+annotations:
+  bootstrap: "true"
 sources:
 - https://github.com/bitnami/bitnami-docker-redis
 maintainers:

@@ -4,4 +4,4 @@ description: Lightweight MySQL 5.7 chart for shared and feature environments
 type: application
 version: 0.1.0
 appVersion: "5.7.44"
-
+icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
