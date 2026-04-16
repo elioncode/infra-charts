@@ -3,9 +3,9 @@ entries:
   mysql:
   - apiVersion: v2
     appVersion: 5.7.44
-    created: "2026-04-16T05:17:48.884279254Z"
+    created: "2026-04-16T13:19:15.275441+08:00"
     description: Lightweight MySQL 5.7 chart for shared and feature environments
-    digest: 813520a499be7a61872f8b714b7317792ce0e2c81865b87e051d2d09dfcdee06
+    digest: 5d7e420127026fe5254741298daaf7e0b9e305f163989f9188593e88a3c56961
     icon: https://www.mysql.com/common/logos/logo-mysql-170x115.png
     name: mysql
     type: application
@@ -17,11 +17,11 @@ entries:
       bootstrap: "true"
     apiVersion: v1
     appVersion: 4.0.9
-    created: "2026-04-16T05:17:48.88479259Z"
+    created: "2026-04-16T13:19:15.27575+08:00"
     description: Open source, advanced key-value store. It is often referred to as
       a data structure server since keys can contain strings, hashes, lists, sets
       and sorted sets.
-    digest: 6eee9405f8ac0f8bab7ecaf82d171076f2bea334577476067d1b14078eae28c1
+    digest: 94b010e0bb03095585e02acec844e1b8cfa4102e61318d5de3a7080fc0fe3bc6
     home: http://redis.io/
     icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
     keywords:
@@ -37,4 +37,4 @@ entries:
     urls:
     - https://elioncode.github.io/infra-charts/redis-3.3.1.tgz
     version: 3.3.1
-generated: "2026-04-16T05:17:48.883803367Z"
+generated: "2026-04-16T13:19:15.274698+08:00"
